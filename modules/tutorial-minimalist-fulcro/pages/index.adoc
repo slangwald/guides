@@ -389,7 +389,7 @@ TIP: Instead of the link:{url-book}#_lambda_mode[lambda mode] of :initial-state 
 
 The body of the `defsc` macro becomes the `render` method of the React class.
 
-Instead of JSX, we use functions from the https://github.com/fulcrologic/fulcro/blob/develop/src/main/com/fulcrologic/fulcro/dom.cljs[`dom` namespace] for rendering HTML tags and React factories for rendering React components.
+Instead of JSX, we use functions from the https://github.com/fulcrologic/fulcro/blob/main/src/main/com/fulcrologic/fulcro/dom.cljs[`dom` namespace] for rendering HTML tags and React factories for rendering React components.
 
 This is what a complete call looks like:
 
@@ -684,7 +684,7 @@ How to provide params to parametrized Pathom resolvers?::
 Use the option `:params` to provide extra {url-pathom-resolvers}#_parameters[parameters to the target Pathom resolver], such as pagination and filtering. Ex.: `(df/load this :current-user User {:params {:username u :password p}})`.
 
 How can I add a reference to the loaded data entity to another entity present in the client DB?::
-Similarly as with `merge-component!` but instead of specifying directly `:append`, `:prepend`, and `:replace`, you specify the `:target` option with a target from https://github.com/fulcrologic/fulcro/blob/develop/src/main/com/fulcrologic/fulcro/algorithms/data_targeting.cljc[the `targeting` namespace] such as `(append-to <path>)`, `(prepend-to <path>)`, `(replace-at <path>)` or any combination of these by leveraging `(multiple-targets ...)`. See the example above.
+Similarly as with `merge-component!` but instead of specifying directly `:append`, `:prepend`, and `:replace`, you specify the `:target` option with a target from https://github.com/fulcrologic/fulcro/blob/main/src/main/com/fulcrologic/fulcro/algorithms/data_targeting.cljc[the `targeting` namespace] such as `(append-to <path>)`, `(prepend-to <path>)`, `(replace-at <path>)` or any combination of these by leveraging `(multiple-targets ...)`. See the example above.
 
 How to exclude a costly prop(s) from being loaded?::
 Imagine you want to load a Blog entity but exclude its comments so that you can load them asynchronously or e.g. when the user scrolls down. You can leverage `:without` for that: `(load! app [:blog/id 42] Blog {:without #{:blog/comments}})`. Notice that it removes the property no matter how deep in the query it is so `(load! app :all-blogs BlogList {:without #{:blog/comments}})` will also do this. Learn more in the chapter on {url-book}#IncrementalLoading[Incremental Loading].
@@ -875,7 +875,7 @@ OK, you have completed the tutorial. What now?
 . Come back and re-read this tutorial. You will likely understand it much better and get things you overlooked upon the first reading.
 . Have a look at the xref:guide-learning-fulcro:index.adoc[Guide to learning Fulcro].
 . Read real-world Fulcro code to verify and expand your understanding - the official https://github.com/fulcrologic/fulcro-template[fulcro-template] and other more less link:++https://fulcro-community.github.io/main/awesome-fulcro/README.html#_real_apps++["real apps"]
-. Clone the https://github.com/fulcrologic/fulcro/tree/develop/src/todomvc/fulcro_todomvc[Fulcro Todo MVC] application, study it, and try to extend and change it. Some ideas:
+. Clone the https://github.com/fulcrologic/fulcro/tree/main/src/todomvc/fulcro_todomvc[Fulcro Todo MVC] application, study it, and try to extend and change it. Some ideas:
   ** Add support for multiple TODO lists and the ability to select which one to show
   ** Replace the atom with an actual database for persistent data storage
   ** Make it a multi-user application: add login and web sockets to receive concurrent changes from other clients
